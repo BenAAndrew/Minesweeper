@@ -30,7 +30,7 @@ cans = Cans(
     starting_ring,
     int(float(RING["CAN_SIZE_PERCENTAGE"]) * ring_radius),
     int(RING["CANS"]),
-    int(RING["MIN_DIST_BETWEEN_CANS"]),
+    int(float(RING["MIN_DIST_PERCENTAGE_BETWEEN_CANS"]) * ring_radius),
     to_int_array(RING["CAN_COLOUR"]),
 )
 
