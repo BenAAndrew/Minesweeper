@@ -24,16 +24,15 @@ class Cans:
         cans = []
         attempts = 0
         while len(cans) < total:
-            x, y = self.get_random_position_in_ring(ring, starting_ring)
-
-            valid = True
-            for can in cans:
-                if can.distance_to(x, y, self.can_radius) < self.min_dist:
-                    # Clear layout and restart
-                    valid = False
-                    attempts += 1
-                    cans = []
-                    break
+            valid = False
+            while (not valid):
+                x, y = self.get_random_position_in_ring(ring, starting_ring)
+                valid = True
+                attempts += 1
+                for can in cans:
+                    if can.distance_to(x, y, self.can_radius) < self.min_dist:
+                        valid = False
+                        break
 
             if valid:
                 cans.append(Circle(x, y, self.can_radius, colour))
