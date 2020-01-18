@@ -25,8 +25,5 @@ class Circle:
     def draw(self, window: Window):
         pygame.draw.circle(window.screen, self.colour, (self.x, self.y), self.radius)
 
-    def distance_to(self, x: int, y: int, radius: int):
+    def distance_to(self, x: int, y: int):
         return sqrt((x - self.x) ** 2 + (y - self.y) ** 2)
-
-    def circle_lies_within(self, x: int, y: int, radius: int):
-        return self.radius > self.distance_to(x, y, radius) + radius
